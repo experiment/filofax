@@ -11,9 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140423214208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: true do |t|
+    t.integer  "paper_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authors", ["paper_id"], name: "index_authors_on_paper_id", using: :btree
+
+  create_table "issues", force: true do |t|
+    t.integer  "journal_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "issues", ["journal_id"], name: "index_issues_on_journal_id", using: :btree
+
+  create_table "journals", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "papers", force: true do |t|
+    t.integer  "issue_id"
+    t.string   "doi"
+    t.string   "title"
+    t.datetime "published_at"
+    t.string   "url"
+    t.string   "keywords",     default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "papers", ["issue_id"], name: "index_papers_on_issue_id", using: :btree
 
 end
