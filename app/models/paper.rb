@@ -21,8 +21,8 @@ class Paper < ActiveRecord::Base
         author.email = scraper.author.email
         author.location = scraper.author.location
       end
-      paper.scraped = true
-      paper.save!
+      scraped = true
+      save!
     end
   end
 
