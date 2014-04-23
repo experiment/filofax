@@ -5,14 +5,16 @@ class Issue < ActiveRecord::Base
 
   validates :url, presence: true, uniqueness: true
 
-  # TODO, add re-scrape protection
-
   def scrape!
+    return if scraped?
+
     scraper.scrape!
 
     scraper.papers.each do |paper|
       papers.create! url: paper.url
     end
+
+    update_attributes! scraped: true
   end
 
   private
