@@ -12,17 +12,21 @@ class Paper < ActiveRecord::Base
     end
 
     if scraper.title && scraper.author # Basic sanity check
-      doi = scraper.doi
-      title = scraper.title
-      published_at = scraper.published_at
-      keywords = scraper.keywords
-      authors.create! do |author|
-        author.name = scraper.author.name
-        author.email = scraper.author.email
-        author.location = scraper.author.location
+      Paper.transaction do
+        self.doi = scraper.doi
+        self.title = scraper.title
+        self.published_at = scraper.published_at
+        self.keywords = scraper.keywords
+
+        authors.create! do |author|
+          author.name = scraper.author.name
+          author.email = scraper.author.email
+          author.location = scraper.author.location
+        end
+
+        self.scraped = true
+        save!
       end
-      scraped = true
-      save!
     end
   end
 

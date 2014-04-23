@@ -10,11 +10,14 @@ class Issue < ActiveRecord::Base
 
     scraper.scrape!
 
-    scraper.papers.each do |paper|
-      papers.create! url: paper.url
-    end
+    Issue.transaction do
+      scraper.papers.each do |paper|
+        papers.create! url: paper.url
+      end
 
-    update_attributes! scraped: true
+      self.scraped = true
+      save!
+    end
   end
 
   private
