@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:Microryza/journals.git
+  remote: https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git
   revision: ef8e643173f5dee62c0058aa8433c2f048790f68
   specs:
     journals (0.0.1)

@@ -15,7 +15,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'journals', git: 'git@github.com:Microryza/journals.git' # TODO, lock to version
+
+# TODO, lock to version
+gem 'journals', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
