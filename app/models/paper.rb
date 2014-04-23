@@ -5,6 +5,8 @@ class Paper < ActiveRecord::Base
   validates :issue, presence: true
 
   def scrape!
+    return if scraped?
+
     Timeout::timeout(30) do
       scraper.scrape!
     end
@@ -19,6 +21,7 @@ class Paper < ActiveRecord::Base
         author.email = scraper.author.email
         author.location = scraper.author.location
       end
+      paper.scraped = true
       paper.save!
     end
   end
