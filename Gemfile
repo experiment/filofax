@@ -21,6 +21,14 @@ gem 'journals', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-b
 
 gem 'slim'
 
+gem 'sidekiq', '< 3' # Bugsnag isn't sidekiq 3 compatible yet
+gem 'sinatra'
+
+group :production do
+  # Bugsnag for error tracking
+  gem 'bugsnag'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
-    root 'application#home'
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
+  root 'application#home'
 
 end
