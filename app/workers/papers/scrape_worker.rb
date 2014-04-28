@@ -11,7 +11,7 @@ module Papers
 
       paper.scrape!
     ensure
-      sleep rand(15)
+      sleep rand(30)
     end
   end
 end
