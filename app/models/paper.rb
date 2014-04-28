@@ -6,6 +6,8 @@ class Paper < ActiveRecord::Base
 
   after_commit :enqueue_scrape, on: :create
 
+  scope :unscraped, -> { where(scraped: false) }
+
   def scrape!
     return if scraped?
 
