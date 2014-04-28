@@ -37,8 +37,13 @@ class Paper < ActiveRecord::Base
   private
 
     def scraper
-      # TODO, make work for non BMC journals
-      @scraper ||= Journals::BmcPaper.new url: url
+      # TODO, make this logic better for more journals
+      @scraper ||= case journal.name
+        when /^PLOS/
+          Journals::PlosPaper.new doi: doi
+        else
+          Journals::BmcPaper.new url: url
+      end
     end
 
     def enqueue_scrape

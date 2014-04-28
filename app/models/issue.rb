@@ -14,7 +14,11 @@ class Issue < ActiveRecord::Base
 
     Issue.transaction do
       scraper.papers.each do |paper|
-        papers.create! url: paper.url
+        if paper.doi
+          papers.create! doi: paper.doi
+        else
+          papers.create! url: paper.url
+        end
       end
 
       self.scraped = true
@@ -25,7 +29,12 @@ class Issue < ActiveRecord::Base
   private
 
     def scraper
-      # TODO, make work for non BMC journals
-      @scraper ||= Journals::BmcIssue.new url: url
+      # TODO, make this logic better for more journals
+      @scraper ||= case journal.name
+        when /^PLOS/
+          Journals::PlosIssue.new url: url
+        else
+          Journals::BmcIssue.new url: url
+      end
     end
 end
