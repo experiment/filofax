@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 
 # TODO, lock to version
-gem 'journals', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git"
+gem 'journals', '~> 1', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git"
 
 gem 'slim'
 

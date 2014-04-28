@@ -1,8 +1,8 @@
 GIT
   remote: https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git
-  revision: ef8e643173f5dee62c0058aa8433c2f048790f68
+  revision: 9c461319d499b99b993271eddefa2ad4e7ad2c43
   specs:
-    journals (0.0.1)
+    journals (1.0.0)
       activesupport
       httparty
       nokogiri
@@ -143,7 +143,7 @@ PLATFORMS
 DEPENDENCIES
   bugsnag
   coffee-rails (~> 4.0.0)
-  journals!
+  journals (~> 1)!
   pg
   rails (= 4.1.0)
   sass-rails (~> 4.0.3)
