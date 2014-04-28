@@ -5,6 +5,8 @@ class Issue < ActiveRecord::Base
 
   validates :url, presence: true, uniqueness: true
 
+  scope :unscraped, -> { where(scraped: false) }
+
   def scrape!
     return if scraped?
 
