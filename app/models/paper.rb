@@ -4,6 +4,8 @@ class Paper < ActiveRecord::Base
 
   validates :issue, presence: true
 
+  after_commit :enqueue_scrape, on: :create
+
   def scrape!
     return if scraped?
 
@@ -35,5 +37,9 @@ class Paper < ActiveRecord::Base
     def scraper
       # TODO, make work for non BMC journals
       @scraper ||= Journals::BmcPaper.new url: url
+    end
+
+    def enqueue_scrape
+      Papers::ScrapeWorker.perform_async id
     end
 end
