@@ -2,6 +2,8 @@ class Paper < ActiveRecord::Base
   belongs_to :issue
   has_many :authors
 
+  delegate :journal, to: :issue
+
   validates :issue, presence: true
 
   after_commit :enqueue_scrape, on: :create
