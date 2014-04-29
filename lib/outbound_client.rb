@@ -8,7 +8,13 @@ class OutboundClient
       source: 'filofax',
       contact: {
         email: author.email,
-        name: author.name
+        name: author.name,
+        info: {
+          journal: author.paper.journal.name,
+          paper: {
+            published_at: author.paper.published_at
+          }
+        }
       }
     }
     response = self.class.post '/contacts', query: params
