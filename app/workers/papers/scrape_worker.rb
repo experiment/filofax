@@ -6,12 +6,12 @@ module Papers
       86400 * count # always retry in 1 day
     end
 
+    sidekiq_options throttle: { threshold: 1, period: 30.seconds }
+
     def perform(paper_id)
       paper = Paper.find paper_id
 
       paper.scrape!
-    ensure
-      sleep rand(30)
     end
   end
 end

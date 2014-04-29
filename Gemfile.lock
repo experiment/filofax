@@ -107,6 +107,9 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    sidekiq-throttler (0.4.0)
+      activesupport
+      sidekiq (>= 2.5, < 3.1)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -148,6 +151,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   sass-rails (~> 4.0.3)
   sidekiq (< 3)
+  sidekiq-throttler
   sinatra
   slim
   uglifier (>= 1.3.0)
