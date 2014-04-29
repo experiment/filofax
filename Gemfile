@@ -15,14 +15,13 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-
-# TODO, lock to version
 gem 'journals', '~> 1', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git"
 
 gem 'slim'
 
 gem 'sidekiq', '< 3' # Bugsnag isn't sidekiq 3 compatible yet
-gem 'sinatra'
+gem 'sidekiq-throttler' # Rate limit jobs
+gem 'sinatra' # For sidekiq UI
 
 group :production do
   # Bugsnag for error tracking
