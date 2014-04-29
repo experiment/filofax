@@ -146,6 +146,7 @@ PLATFORMS
 DEPENDENCIES
   bugsnag
   coffee-rails (~> 4.0.0)
+  httparty
   journals (~> 1)!
   pg
   rails (= 4.1.0)

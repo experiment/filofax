@@ -23,6 +23,8 @@ gem 'sidekiq', '< 3' # Bugsnag isn't sidekiq 3 compatible yet
 gem 'sidekiq-throttler' # Rate limit jobs
 gem 'sinatra' # For sidekiq UI
 
+gem 'httparty'
+
 group :production do
   # Bugsnag for error tracking
   gem 'bugsnag'
