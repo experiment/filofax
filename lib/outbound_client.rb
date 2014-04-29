@@ -20,7 +20,9 @@ class OutboundClient
     }
     response = self.class.post '/contacts', query: params
 
-    unless response.code == 201
+    if response.code == 201
+      author.imported!
+    else
       raise "OutboundClient#create_contact: #{response.code.to_s}"
     end
   end
