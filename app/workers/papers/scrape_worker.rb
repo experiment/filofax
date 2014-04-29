@@ -12,8 +12,6 @@ module Papers
       paper = Paper.find paper_id
 
       paper.scrape!
-    ensure
-      sleep rand(30)
     end
   end
 end
