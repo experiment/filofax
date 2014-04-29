@@ -10,6 +10,7 @@ class OutboundClient
         email: author.email,
         name: author.name,
         info: {
+          author_id: author.id,
           journal: author.paper.journal.name,
           paper: {
             published_at: author.paper.published_at
