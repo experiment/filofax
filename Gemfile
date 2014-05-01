@@ -19,7 +19,7 @@ gem 'journals', '~> 1', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x
 
 gem 'slim'
 
-gem 'sidekiq', '< 3' # Bugsnag isn't sidekiq 3 compatible yet
+gem 'sidekiq'
 gem 'sidekiq-throttler' # Rate limit jobs
 gem 'sinatra' # For sidekiq UI
 
