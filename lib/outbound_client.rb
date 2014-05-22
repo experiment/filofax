@@ -22,6 +22,9 @@ class OutboundClient
 
     if response.code == 201
       author.imported!
+    elsif response.code == 422
+      # Email already exists in outbound, mark as imported
+      author.imported!
     else
       raise "OutboundClient#create_contact: #{response.code.to_s}"
     end
