@@ -7,7 +7,7 @@ module Papers
     #   86400 * count # always retry in 1 day
     # end
 
-    sidekiq_options throttle: { threshold: 1, period: 30.seconds },
+    sidekiq_options throttle: { threshold: 1, period: 10.seconds },
       :retry => false
 
     def perform(paper_id)
