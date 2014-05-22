@@ -7,10 +7,16 @@ h2
 h2
   = Issue.count
   |  issues
+h3
+  = Issue.where(scraped: true).count
+  |  scraped
 
 h2
   = Paper.count
   |  papers
+h3
+  = Paper.where(scraped: true).count
+  |  scraped
 
 h2
   = Author.count
@@ -20,3 +26,7 @@ h3
   | (
   = Author.us_based.count
   |  likely US based)
+h3
+  | (
+  = Author.us_based.unimported.count
+  |  importable)
