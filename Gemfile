@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.2.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'journals', '~> 1', git: "https://9c9fc987dec2b0b137e7fd455845c16144c13abe:x-oauth-basic@github.com/Microryza/journals.git"
+gem 'journals', '~> 1', git: "https://9e7a6eadf47be8f2262849c0108a2d8ef4f0d0ea@github.com/Microryza/journals.git"
 
 gem 'slim'
 
